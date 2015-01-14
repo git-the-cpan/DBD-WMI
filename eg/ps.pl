@@ -11,10 +11,9 @@ my $sth = $dbh->prepare(<<WQL);
 WQL
 
 $sth->execute();
-while (defined (my $row = $sth->fetchrow_arrayref())) {
-    my $ev = $row->[0];
-    print join "\t", $ev->{Caption}, $ev->{ExecutablePath};
-    # $ev->{CommandLine}, 
-    #print $ev->TargetInstance->Name;
+while (my @row = $sth->fetchrow) {
+    my $proc = $row[0];
+    print join "\t", $proc->{Caption}, $proc->{ExecutablePath} || "<system>";
+    # $proc->Terminate();
     print "\n";
 }

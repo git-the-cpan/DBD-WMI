@@ -6,16 +6,8 @@
 use warnings;
 use strict;
 use File::Find;
-use Test::More;
-BEGIN {
-    eval 'use File::Slurp; 1';
-    if ($@) {
-        plan skip_all => "File::Slurp needed for testing";
-	exit 0;
-    };
-};
-
-plan 'no_plan';
+use File::Slurp;
+use Test::More qw(no_plan);
 
 my $last_version = undef;
 

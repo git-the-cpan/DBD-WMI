@@ -13,10 +13,10 @@ Win32::WQL - DBI-like wrapper for the WMI
   use Win32::WQL;
   my $wmi = Win32::WQL->new( machine => 'remote_computer' );
   my $sth = $wmi->prepare(<<'WQL');
-  
+
     ASSOCIATORS OF {Win32_Directory.Name='C:\\WINNT'}
     WHERE ResultClass = CIM_DataFile
-    
+
   WQL
 
   my $remote_files = $sth->execute;
@@ -34,7 +34,7 @@ is a compatibility layer over this module.
 =cut
 
 use vars qw($VERSION);
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 Win32::OLE->Option(Warn => 3);
 
@@ -48,7 +48,7 @@ Initializes the thin wrapper over the L<Win32::OLE>
 WMI instance. All parameters are optional.
 
   machine
-  
+
 The parameter is the machine name to connect to. It defaults
 to the local machine.
 
@@ -58,7 +58,7 @@ A preinitialized WMI object to use. Defaults to creating
 a fresh instance.
 
   statement_class
-  
+
 The class into which the results of C<prepare>
 are blessed. Defaults to C<Win32::WQL::Statement>.
 
@@ -91,7 +91,7 @@ sub new {
 
 =head2 C<< $wmi->prepare QUERY >>
 
-Returns a prepared query by calling 
+Returns a prepared query by calling
 
     return $self->statement_class->new({
         query => $query,
@@ -134,7 +134,7 @@ Static queries are static and return all rows in
 one go.
 
 A query is considered an event query if it
-matches 
+matches
 
      $query =~ /\b__instance(?:\w+)event\b/i
   or $query =~ /\wEvent\b/i
@@ -220,15 +220,32 @@ events from more than one WMI namespace
 
 =back
 
+=head1 REPOSITORY
+
+The public repository of this module is
+L<https://github.com/Corion/dbd-wmi>.
+
+=head1 SUPPORT
+
+The public support forum of this module is
+L<https://perlmonks.org/>.
+
+=head1 BUG TRACKER
+
+Please report bugs in this module via the RT CPAN bug queue at
+L<https://rt.cpan.org/Public/Dist/Display.html?Name=DBD-WMI>
+or via mail to L<www-mechanize-phantomjs-Bugs@rt.cpan.org>.
+
 =head1 AUTHOR
 
-Max Maischein (corion@cpan.org)
+Max Maischein C<corion@cpan.org>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT (c)
 
-Copyright (C) 2006 Max Maischein.  All Rights Reserved.
+Copyright 2009-2015 by Max Maischein C<corion@cpan.org>.
 
-This code is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+=head1 LICENSE
+
+This module is released under the same terms as Perl itself.
 
 =cut

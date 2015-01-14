@@ -6,7 +6,7 @@ use DBI;
 use vars qw($ATTRIBUTION $VERSION);
 
 $ATTRIBUTION = 'DBD::WMI by Max Maischein <dbd-wmi@corion.net>';
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 =head1 NAME
 
@@ -410,5 +410,33 @@ The "Hey Scripting Guy" column at L<http://www.microsoft.com/technet/scriptcente
 Wikipedia on WMI at L<http://en.wikipedia.org/wiki/Windows_Management_Instrumentation>
 
 List of available Win32 WMI classes at L<http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wmisdk/wmi/win32_classes.asp>
+
+=head1 REPOSITORY
+
+The public repository of this module is
+L<https://github.com/Corion/dbd-wmi>.
+
+=head1 SUPPORT
+
+The public support forum of this module is
+L<https://perlmonks.org/>.
+
+=head1 BUG TRACKER
+
+Please report bugs in this module via the RT CPAN bug queue at
+L<https://rt.cpan.org/Public/Dist/Display.html?Name=DBD-WMI>
+or via mail to L<www-mechanize-phantomjs-Bugs@rt.cpan.org>.
+
+=head1 AUTHOR
+
+Max Maischein C<corion@cpan.org>
+
+=head1 COPYRIGHT (c)
+
+Copyright 2009-2015 by Max Maischein C<corion@cpan.org>.
+
+=head1 LICENSE
+
+This module is released under the same terms as Perl itself.
 
 =cut

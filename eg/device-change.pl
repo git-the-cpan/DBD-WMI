@@ -4,7 +4,7 @@ use strict;
 use DBI;
 use Data::Dumper;
 
-my $dbh = DBI->connect('dbi:WMI:foo');
+my $dbh = DBI->connect('dbi:WMI:');
 
 my $sth = $dbh->prepare(<<WQL);
     SELECT * FROM __instanceoperationevent
@@ -19,6 +19,7 @@ while (defined (my $row = $sth->fetchrow_arrayref())) {
     
     # Windows XP only :(
     print join "\t", $ev->{DeviceID}, $ev->{Caption}, $ev->{MediaType};
+    print join "\t", $ev->{InterfaceType}; #, $ev->{Caption}, $ev->{MediaType};
     print $ev->Path_->Class,"\n";
     print $ev->TargetInstance->Name, $ev->TargetInstance->Caption,"\n";
 }
